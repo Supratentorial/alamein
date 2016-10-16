@@ -8,15 +8,20 @@ import { McqDataService} from './mcq-data.service';
   templateUrl: './multiple-choice-question.component.html',
 })
 export class MultipleChoiceQuestionComponent implements OnInit {
-  ngOnInit() {this.mcqdataservice.getMcqs.subscribe(this.getMcqsSuccess, this.getMcqsError)}
-  
-  constructor (private mcqdataservice: McqDataService) {}
-  
-  getMcqsError(){
-    console.log("something bad happened")
+  ngOnInit() {
+    this.mcqDataService.getNextMcqs().subscribe(
+      (nextMcq) => { this.currentMcq = nextMcq },
+      (error) => { console.log(error) }
+    )
   }
-  getMcqsSuccess(){
-    console.log("something good happened")
+  
+  constructor (private mcqDataService: McqDataService) {}
+  
+  getNextMcqsError(){
+    console.log("something bad happened");
+  }
+  getNextMcqsSuccess(nextmcq: Mcq){
+    this.currentMcq = nextmcq;
   }
   currentMcq : Mcq;
 

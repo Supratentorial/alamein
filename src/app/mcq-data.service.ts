@@ -3,22 +3,23 @@ import { Http, Response} from '@angular/http';
 
 import { Mcq } from './mcq';
 import { Observable } from 'rxjs/observable';
+import 'rxjs/Rx';
 
 @Injectable()
 export class McqDataService {
-    private mcqUrl = 'localhost:8080/mcq';
+    private mcqUrl = 'http://localhost:8080/mcq';
 
     constructor (private http: Http) {}
 
-    getMcqs (): Observable<Mcq[]> {
+    getNextMcqs (): Observable<Mcq> {
         return this.http.get(this.mcqUrl)
                         .map(this.extractData)
                         .catch(this.handleError);
     }
-    private extractData(res: Response) {
+    private extractData(res: Response): Mcq {
         let body = res.json();
-        console.log(body.data);
-        return body.data;
+        return body;
+
     }
     private handleError (error: any) {
         console.error(error);
