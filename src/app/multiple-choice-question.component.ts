@@ -5,7 +5,7 @@ import { McqDataService} from './mcq-data.service';
 
 @Component({
   selector: 'multiple-choice-question',
-  templateUrl: './multiple-choice-question.component.html',
+  templateUrl: './multiple-choice-question.component.html'
 })
 export class MultipleChoiceQuestionComponent implements OnInit {
   ngOnInit() {
