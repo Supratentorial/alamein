@@ -2,19 +2,19 @@
 <form>
 	<div class="form-group">
 		<label>MCQ Question:</label>
-		<input class="form-control" />
+		<input name="question" class="form-control" [(ngModel)]="question"/>
 	</div>
 	<div class="form-group">
 		<label>Answer 1:</label>
-		<input class="form-control" />
+		<input name="answer1" class="form-control" [(ngModel)]="answer1"/>
 	</div>
 	<div class="form-group">
 		<label>Answer 2:</label>
-		<input class="form-control" />
+		<input name="answer2" class="form-control" [(ngModel)]="answer2"/>
 	</div>
 	<div class="form-group">
 		<label>Answer 3:</label>
-		<input class="form-control" />
+		<input name="answer3" class="form-control" [(ngModel)]="answer3"/>
 	</div>
-	<button class="btn btn-success">Save MCQ</button>
+	<button class="btn btn-success" (click)="saveNewMcq()">Save MCQ</button>
 </form>
