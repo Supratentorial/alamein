@@ -7,7 +7,7 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class McqDataService {
-    private mcqUrl = 'http://localhost:8080/mcq';
+    private mcqUrl = 'http://cloudassignment-env.us-west-2.elasticbeanstalk.com/';
 
     constructor (private http: Http) {}
 
